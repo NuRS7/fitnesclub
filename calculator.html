@@ -1,0 +1,89 @@
+<!-- calculator.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <link rel="stylesheet" href="comminity.css">
+</head>
+<body>
+<header>
+    <h1>Community</h1>
+</header>
+
+<div class="bmi-container">
+    <section class="bmi-calculator">
+        <h2>BMI Calculator</h2>
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required>
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="bmiResult"></p>
+    </section>
+
+    <section class="bmi-table">
+        <h2>BMI Classification</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>BMI Index</th>
+                <th>Classification</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>16 and below</td>
+                <td>Severe underweight</td>
+            </tr>
+            <tr>
+                <td>16 - 18.5</td>
+                <td>Underweight</td>
+            </tr>
+            <tr>
+                <td>18.5 - 25</td>
+                <td>Normal</td>
+            </tr>
+            <tr>
+                <td>25 - 30</td>
+                <td>Overweight (pre-obesity)</td>
+            </tr>
+            <tr>
+                <td>30 - 35</td>
+                <td>Obesity Class I</td>
+            </tr>
+            <tr>
+                <td>35 - 40</td>
+                <td>Obesity Class II</td>
+            </tr>
+            <tr>
+                <td>40 and above</td>
+                <td>Obesity Class III (morbid)</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script>
+    // BMI Calculator Function
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100;
+        const bmi = (weight / (height * height)).toFixed(2);
+        let classification = '';
+
+        if (bmi < 16) classification = 'Severe underweight';
+        else if (bmi < 18.5) classification = 'Underweight';
+        else if (bmi < 25) classification = 'Normal';
+        else if (bmi < 30) classification = 'Overweight (pre-obesity)';
+        else if (bmi < 35) classification = 'Obesity Class I';
+        else if (bmi < 40) classification = 'Obesity Class II';
+        else classification = 'Obesity Class III (morbid)';
+
+        document.getElementById('bmiResult').textContent = `Your BMI is ${bmi} - ${classification}`;
+    }
+</script>
+</body>
+</html>
