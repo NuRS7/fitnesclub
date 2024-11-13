@@ -1,65 +1,65 @@
 <!-- calculator.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community</title>
+    <title>Қауымдастық</title>
     <link rel="stylesheet" href="comminity.css">
 </head>
 <body>
 <header>
-    <h1>Community</h1>
+    <h1>Қауымдастық</h1>
 </header>
 
 <div class="bmi-container">
     <section class="bmi-calculator">
-        <h2>BMI Calculator</h2>
-        <label for="weight">Weight (kg):</label>
+        <h2>ИМТ калькуляторы</h2>
+        <label for="weight">Салмақ (кг):</label>
         <input type="number" id="weight" required>
-        <label for="height">Height (cm):</label>
+        <label for="height">Биіктік (см):</label>
         <input type="number" id="height" required>
-        <button onclick="calculateBMI()">Calculate BMI</button>
+        <button onclick="calculateBMI()">ИМТ есептеу</button>
         <p id="bmiResult"></p>
     </section>
 
     <section class="bmi-table">
-        <h2>BMI Classification</h2>
+        <h2>ИМТ классификациясы</h2>
         <table>
             <thead>
             <tr>
-                <th>BMI Index</th>
-                <th>Classification</th>
+                <th>ИМТ индексі</th>
+                <th>Классификация</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>16 and below</td>
-                <td>Severe underweight</td>
+                <td>16 және төмен</td>
+                <td>Қатты арық</td>
             </tr>
             <tr>
                 <td>16 - 18.5</td>
-                <td>Underweight</td>
+                <td>Арық</td>
             </tr>
             <tr>
                 <td>18.5 - 25</td>
-                <td>Normal</td>
+                <td>Нормальды</td>
             </tr>
             <tr>
                 <td>25 - 30</td>
-                <td>Overweight (pre-obesity)</td>
+                <td>Артық салмақ (предобезитет)</td>
             </tr>
             <tr>
                 <td>30 - 35</td>
-                <td>Obesity Class I</td>
+                <td>Ожирение 1-ші кезең</td>
             </tr>
             <tr>
                 <td>35 - 40</td>
-                <td>Obesity Class II</td>
+                <td>Ожирение 2-ші кезең</td>
             </tr>
             <tr>
-                <td>40 and above</td>
-                <td>Obesity Class III (morbid)</td>
+                <td>40 және жоғары</td>
+                <td>Ожирение 3-ші кезең (мобидті)</td>
             </tr>
             </tbody>
         </table>
@@ -67,22 +67,21 @@
 </div>
 
 <script>
-    // BMI Calculator Function
     function calculateBMI() {
         const weight = parseFloat(document.getElementById('weight').value);
         const height = parseFloat(document.getElementById('height').value) / 100;
         const bmi = (weight / (height * height)).toFixed(2);
         let classification = '';
 
-        if (bmi < 16) classification = 'Severe underweight';
-        else if (bmi < 18.5) classification = 'Underweight';
-        else if (bmi < 25) classification = 'Normal';
-        else if (bmi < 30) classification = 'Overweight (pre-obesity)';
-        else if (bmi < 35) classification = 'Obesity Class I';
-        else if (bmi < 40) classification = 'Obesity Class II';
-        else classification = 'Obesity Class III (morbid)';
+        if (bmi < 16) classification = 'Қатты арық';
+        else if (bmi < 18.5) classification = 'Арық';
+        else if (bmi < 25) classification = 'Нормальды';
+        else if (bmi < 30) classification = 'Артық салмақ (предобезитет)';
+        else if (bmi < 35) classification = 'Ожирение 1-ші кезең';
+        else if (bmi < 40) classification = 'Ожирение 2-ші кезең';
+        else classification = 'Ожирение 3-ші кезең (мобидті)';
 
-        document.getElementById('bmiResult').textContent = `Your BMI is ${bmi} - ${classification}`;
+        document.getElementById('bmiResult').textContent = `Сіздің ИМТ: ${bmi} - ${classification}`;
     }
 </script>
 </body>

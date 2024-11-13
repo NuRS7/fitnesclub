@@ -281,20 +281,14 @@ nav {
 }
 
 .class__image .class__img-1 {
-  position: absolute;
+  position: static;
   right: 0;
   top: 0;
   max-width: 500px;
   border-radius: 10px;
 }
 
-.class__image .class__img-2 {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  max-width: 300px;
-  border-radius: 10px;
-}
+
 
 .class__content {
   padding: 2rem 0;
